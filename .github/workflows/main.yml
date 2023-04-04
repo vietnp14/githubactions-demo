@@ -1,0 +1,20 @@
+name: Run test
+
+on:
+  pull_request:
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node_version: 16.18
+      
+      - name: Npm install
+        run: npm install
+
+      - name: Run test
+        run: npm run test
